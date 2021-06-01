@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](design/finished-card.png)
 
 ### Links
 
@@ -39,15 +39,15 @@ Users should be able to:
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
+- CSS animations
 - CSS Grid
 - Mobile-first workflow
 
-### What I learned
-
 ### Continued development
 
-### Useful resources
+Animations are great to add once the layout was completed. The slide-in animation was a very nice icing on the cake and made the components stand out.
+
+This was my last "card" style exercise and I feel very comfortable with it. I'll be moving onto taking up 1-2 actual websites and then I'll be moving onto JavaScript if all goes well.
 
 ## Author
 

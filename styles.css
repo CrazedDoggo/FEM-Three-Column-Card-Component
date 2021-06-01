@@ -6,3 +6,178 @@
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
+
+/* GENERAL || */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+
+    --transparent-white: hsla(0, 0%, 100%, 0.75);
+    --light-gray: hsl(0, 0%, 95%);
+
+    --font-size-main: .9375rem;
+
+    --main-font: 'Lexend Deca', Arial, Helvectica, sans-serif;
+    --header-font: 'Big Shoulders Display', Helvectica, Arial, sans-serif;
+}
+
+body {
+    padding: 1em;
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--main-font);
+    font-size: var(--font-size-main);
+    background-color: var(--light-gray);
+}
+
+img {
+    max-width: 100%;
+}
+
+/* TYPOGRAPHY || */
+
+h2 {
+    text-transform: uppercase;
+    font-family: var(--header-font);
+    color: var(--light-gray);
+    margin: 1em 0;
+    font-size: 1.875rem;
+}
+p {
+    color: var(--transparent-white);
+    margin: 2em 0;
+}
+
+/* COMPONENTS || */
+
+button {
+    all: unset;
+    text-transform: capitalize;
+    cursor: pointer;
+    color: black;
+    background-color: var(--light-gray);
+    border: 1px solid var(--transparent-white);
+    padding: .8em 2em;
+    border-radius: 100px;
+
+    will-change: transform;
+    transition: transform 350ms, background-color 350ms, color 350ms;
+    transition-delay: 200ms;
+}
+.sedans button {
+    color: var(--bright-orange)
+}
+.suvs button {
+    color: var(--dark-cyan)
+}
+.luxury button {
+    color: var(--very-dark-cyan);
+}
+button:hover {
+    background-color: inherit;
+    color: var(--transparent-white);
+    transform: scale(1.1);
+    transition-delay: 0ms;
+}
+
+.card-container {
+    margin-bottom: 1em;
+}
+.card {
+    padding: 2.5em 2em;
+}
+.card-container section:first-child {
+    border-radius: 10px 10px 0 0;
+}
+.card-container section:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+.sedans {
+    transform: translateY(-100vh);
+    animation: slide-down 2s ease 1s forwards;
+    background-color: var(--bright-orange);
+    grid-area: sedans;
+}
+
+.suvs {
+    transform: translateX(100vw);
+    animation: slide-left 2s ease forwards;
+    background-color: var(--dark-cyan);
+    grid-area: suvs;
+}
+
+.luxury {
+    transform: translateY(100vh);
+    animation: slide-up 2s ease 2s forwards;
+    background-color: var(--very-dark-cyan);
+    grid-area: luxury;
+}
+
+
+/* LAYOUT || */
+
+.card-container {
+    overflow: hidden;
+    max-width: 800px;
+    display: grid;
+    grid-template-areas: 
+    "sedans"
+    "suvs"
+    "luxury";
+}
+
+/* QUERIES || */
+
+@media(min-width: 700px) {
+    .card-container {
+        grid-template-areas: 
+        "sedans suvs luxury";
+    }
+    .card-container section:first-child {
+        border-radius: 10px 0 0 10px;
+    }
+    .card-container section:last-child {
+        border-radius: 0 10px 10px 0;
+    }
+    button {
+        margin-top: 5em;
+    }
+}
+
+/* ANIMATIONS || */
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100vh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slide-up {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slide-left {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
